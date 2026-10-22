@@ -1,0 +1,148 @@
+    <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Manual TI 2026</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#f4f6f8;--surface:#fff;--text:#0f1b2d;--muted:#5b6778;--accent:#1407a2a9;--accent-bg:#dff1ef;--border:#d9dfe6;--mark:#ffe58a;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1621;--surface:#162232;--text:#e8edf3;--muted:#9aa8b9;--accent:#4fd1c5;--accent-bg:#17394a;--border:#27384c;--mark:#6b5a12;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0e1621;--surface:#162232;--text:#e8edf3;--muted:#9aa8b9;--accent:#4fd1c5;--accent-bg:#17394a;--border:#27384c;--mark:#6b5a12;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 "IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--border);padding:14px 20px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.logo{font-weight:600;font-size:20px;cursor:pointer;white-space:nowrap}
+.logo span{color:var(--accent)}
+.search{flex:1;min-width:200px;max-width:520px;position:relative}
+.search input{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);font:inherit}
+.search input:focus,button:focus-visible,a:focus-visible,.card:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wrap{display:grid;grid-template-columns:250px 1fr;max-width:1100px;margin:0 auto}
+nav{padding:20px;border-right:1px solid var(--border);position:sticky;top:70px;align-self:start;max-height:calc(100vh - 80px);overflow:auto}
+nav button{display:flex;gap:10px;align-items:center;width:100%;text-align:left;border:0;background:none;color:var(--text);font:inherit;padding:9px 10px;border-radius:8px;cursor:pointer}
+nav button:hover{background:var(--accent-bg)}
+nav button.on{background:var(--accent-bg);color:var(--accent);font-weight:600}
+main{padding:28px 24px 60px;min-width:0}
+h1{font-size:28px;line-height:1.25;margin:0 0 6px}
+.sub{color:var(--muted);margin:0 0 24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px;cursor:pointer;text-align:left;color:inherit;font:inherit;display:block;width:100%}
+.card:hover{border-color:var(--accent)}
+.card .ic{font-size:26px}
+.card h3{margin:8px 0 4px;font-size:17px}
+.card p{margin:0;color:var(--muted);font-size:14px}
+.list{display:flex;flex-direction:column;gap:10px}
+.list .card{display:flex;gap:14px;align-items:flex-start}
+.crumb{border:0;background:none;color:var(--accent);font:inherit;cursor:pointer;padding:0;margin-bottom:14px}
+.photo{border:1px dashed var(--border);border-radius:10px;background:var(--accent-bg);color:var(--accent);height:200px;display:flex;align-items:center;justify-content:center;flex-direction:column;margin:18px 0;font-size:14px}
+.photo b{font-size:34px}
+ol{padding-left:22px}
+ol li{margin-bottom:10px}
+.tag{display:inline-block;background:var(--accent-bg);color:var(--accent);border-radius:20px;padding:2px 10px;font-size:13px;margin:0 6px 6px 0}
+.note{background:var(--accent-bg);border-left:4px solid var(--accent);padding:10px 14px;border-radius:6px;margin:16px 0}
+mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 2px}
+.empty{color:var(--muted);padding:30px 0}
+@media (max-width:760px){
+.wrap{display:block}
+nav{display:flex;gap:6px;overflow-x:auto;border-right:0;border-bottom:1px solid var(--border);position:static;max-height:none;padding:10px 14px}
+nav button{width:auto;white-space:nowrap;border:1px solid var(--border)}
+main{padding:20px 16px 50px}
+}
+</style>
+</head>
+<body>
+<header>
+<div class="logo" id="logo" tabindex="0">Sistema Manual <span>TI</span> 2026</div>
+<div class="search"><input id="q" type="search" placeholder="Pesquisar no manual…" aria-label="Pesquisar no manual" autocomplete="off"></div>
+</header>
+<div class="wrap">
+<nav id="nav" aria-label="Assuntos"></nav>
+<main id="main"></main>
+</div>
+<script>
+/* ===== CONTEÚDO DO MANUAL: edite aqui ===== */
+var MANUAL=[
+{id:"sistema",icon:"⚙️",nome:"Sistema",desc:"Sistemas operacionais e configurações.",topicos:[
+ {t:"Em breve",d:"Os tutoriais deste assunto serão adicionados aqui.",tags:["sistema"],passos:["Conteúdo em preparação."]}]},
+{id:"redes",icon:"📶",nome:"Redes",desc:"Conexões, Wi-Fi e rede interna.",topicos:[
+ {t:"Em breve",d:"Os tutoriais deste assunto serão adicionados aqui.",tags:["redes"],passos:["Conteúdo em preparação."]}]},
+{id:"hardware",icon:"🔧",nome:"Hardware",desc:"Equipamentos, peças e manutenção.",topicos:[
+ {t:"Em breve",d:"Os tutoriais deste assunto serão adicionados aqui.",tags:["hardware"],passos:["Conteúdo em preparação."]}]},
+{id:"software",icon:"💿",nome:"Software",desc:"Programas, instalação e atualização.",topicos:[
+ {t:"Em breve",d:"Os tutoriais deste assunto serão adicionados aqui.",tags:["software"],passos:["Conteúdo em preparação."]}]},
+{id:"formatacao",icon:"💾",nome:"Formatação",desc:"Formatar e reinstalar equipamentos.",topicos:[
+ {t:"Em breve",d:"Os tutoriais deste assunto serão adicionados aqui.",tags:["formatação"],passos:["Conteúdo em preparação."]}]},
+{id:"fenix",icon:"🔥",nome:"Fenix",desc:"Tutoriais do Fenix.",topicos:[
+ {t:"Em breve",d:"Os tutoriais deste assunto serão adicionados aqui.",tags:["fenix"],passos:["Conteúdo em preparação."]}]},
+{id:"servidor",icon:"🗄️",nome:"Servidor",desc:"Servidores, acessos e manutenção.",topicos:[
+ {t:"Em breve",d:"Os tutoriais deste assunto serão adicionados aqui.",tags:["servidor"],passos:["Conteúdo em preparação."]}]},
+ {id:"sistema",icon:"⚙️",nome:"Sistema",desc:"Sistemas operacionais e configurações.",topicos:[
+ {t:"Em breve",d:"Os tutoriais deste assunto serão adicionados aqui.",tags:["sistema"],passos:["Conteúdo em preparação."]}]}
+];
+/* ===== FIM DO CONTEÚDO ===== */
+
+var nav=document.getElementById("nav"),main=document.getElementById("main"),qi=document.getElementById("q");
+var state={cat:null,top:null};
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function norm(s){return String(s).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"")}
+function hl(text,q){
+  var t=esc(text);if(!q)return t;
+  var w=norm(q).split(/\s+/).filter(Boolean),n=norm(text),mask=new Array(text.length).fill(false);
+  w.forEach(function(x){var i=n.indexOf(x);while(i>-1){for(var k=0;k<x.length;k++)mask[i+k]=true;i=n.indexOf(x,i+1)}});
+  var out="",open=false;
+  for(var i=0;i<text.length;i++){var c=esc(text[i]);if(mask[i]&&!open){out+="<mark>";open=true}if(!mask[i]&&open){out+="</mark>";open=false}out+=c}
+  return out+(open?"</mark>":"");
+}
+function renderNav(){
+  nav.innerHTML=MANUAL.map(function(c){return '<button data-c="'+c.id+'" class="'+(state.cat===c.id?"on":"")+'"><span>'+c.icon+'</span>'+esc(c.nome)+'</button>'}).join("");
+}
+function home(){
+  return '<h1>Bem-vindo ao Manual TI 2026</h1><p class="sub">Escolha um assunto para explorar ou use a busca no topo.</p><div class="grid">'+
+  MANUAL.map(function(c){return '<button class="card" data-c="'+c.id+'"><div class="ic">'+c.icon+'</div><h3>'+esc(c.nome)+'</h3><p>'+esc(c.desc)+'</p><p>'+c.topicos.length+' tópico(s)</p></button>'}).join("")+'</div>';
+}
+function catView(c){
+  return '<button class="crumb" data-home="1">‹ Início</button><h1>'+c.icon+' '+esc(c.nome)+'</h1><p class="sub">'+esc(c.desc)+'</p><div class="list">'+
+  c.topicos.map(function(t,i){return '<button class="card" data-c="'+c.id+'" data-t="'+i+'"><div><h3 style="margin-top:0">'+esc(t.t)+'</h3><p>'+esc(t.d)+'</p></div></button>'}).join("")+'</div>';
+}
+function topView(c,t){
+  return '<button class="crumb" data-c="'+c.id+'">‹ '+esc(c.nome)+'</button><h1>'+esc(t.t)+'</h1><p class="sub">'+esc(t.d)+'</p>'+
+  '<div>'+t.tags.map(function(g){return '<span class="tag">'+esc(g)+'</span>'}).join("")+'</div>'+
+  '<div class="photo"><b>🖼️</b>Espaço para foto ou captura de tela</div>'+
+  '<h2 style="font-size:19px">Passo a passo</h2><ol>'+t.passos.map(function(p){return '<li>'+esc(p)+'</li>'}).join("")+'</ol>'+
+  (t.nota?'<div class="note">'+esc(t.nota)+'</div>':"");
+}
+function searchView(q){
+  var w=norm(q).split(/\s+/).filter(Boolean),res=[];
+  MANUAL.forEach(function(c){c.topicos.forEach(function(t,i){
+    var hay=norm([t.t,t.d,t.tags.join(" "),t.passos.join(" "),t.nota||""].join(" "));
+    if(w.every(function(x){return hay.indexOf(x)>-1}))res.push({c:c,t:t,i:i});
+  })});
+  var h='<h1>Resultados para “'+esc(q)+'”</h1><p class="sub">'+res.length+' encontrado(s)</p>';
+  if(!res.length)return h+'<p class="empty">Nada encontrado. Tente outra palavra ou navegue pelos assuntos ao lado.</p>';
+  return h+'<div class="list">'+res.map(function(r){return '<button class="card" data-c="'+r.c.id+'" data-t="'+r.i+'"><div><p>'+r.c.icon+' '+esc(r.c.nome)+'</p><h3 style="margin:2px 0 4px">'+hl(r.t.t,q)+'</h3><p>'+hl(r.t.d,q)+'</p></div></button>'}).join("")+'</div>';
+}
+function render(){
+  renderNav();
+  var q=qi.value.trim(),c=MANUAL.filter(function(x){return x.id===state.cat})[0];
+  if(q)main.innerHTML=searchView(q);
+  else if(!c)main.innerHTML=home();
+  else if(state.top==null)main.innerHTML=catView(c);
+  else main.innerHTML=topView(c,c.topicos[state.top]);
+  window.scrollTo(0,0);
+}
+document.addEventListener("click",function(e){
+  var b=e.target.closest("[data-c],[data-home],#logo");if(!b)return;
+  if(b.id==="logo"||b.dataset.home){state={cat:null,top:null}}
+  else{state={cat:b.dataset.c,top:b.dataset.t!=null?+b.dataset.t:null}}
+  qi.value="";render();
+});
+qi.addEventListener("input",function(){
+  var q=qi.value.trim();
+  if(q){var c=main.innerHTML;main.innerHTML=searchView(q)}else render();
+});
+render();
+</script>
+</body>
+</html>
